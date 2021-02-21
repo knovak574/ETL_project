@@ -1,0 +1,20 @@
+
+CREATE TABLE SP500 (
+Symbol TEXT PRIMARY KEY,
+date TEXT,
+open INT,
+close INT,
+volume INT
+);
+
+CREATE TABLE stockname (
+Symbol TEXT PRIMARY KEY,
+Security_Name TEXT,
+Listing_Exchange TEXT
+);
+
+-- Joins tables
+SELECT SP500.Symbol, SP500.date, SP500.open, SP500.close, SP500.volume, stockname.Symbol, stockname.Security_name, stockname.Listing_exchange
+FROM SP500
+JOIN stockname
+ON SP500.Symbol = stockname.Symbol
